@@ -43,11 +43,29 @@ public class UserArrayListRepository implements UserRepository {
 
 	@Override
 	public User save(User user) {
-		// needs work
-		if (users.add(user)) {
+		List<Integer> existingIDs = users.stream().map(u -> u.getUserId()).collect(Collectors.toList());
+		int userId = user.getUserId();
+		boolean validID = userId > 0;
+		boolean idInList = existingIDs.contains(userId);
+		if (!validID) {
+			do {
+				user.setUserId(generateId());
+				userId = user.getUserId();
+				idInList = existingIDs.contains(userId);
+			} while(idInList);
+			users.add(user);
 			return user;
+		}else {
+			if (idInList) {
+				int indexOfRemove = existingIDs.indexOf(user.getUserId());
+				users.remove(indexOfRemove);
+				users.add(user);
+				return user;
+			} else {
+				users.add(user);
+				return user;
+			}
 		}
-		return null;
 	}
 
 	@Override
@@ -80,5 +98,6 @@ public class UserArrayListRepository implements UserRepository {
 		}
 		return null;
 	}
+	
 	
 }
