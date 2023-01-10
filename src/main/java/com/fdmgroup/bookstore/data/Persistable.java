@@ -1,9 +1,7 @@
 package com.fdmgroup.bookstore.data;
 
-import com.fdmgroup.bookstore.model.User;
-
-public interface Persistable {
+public interface Persistable<T> {
 	
-	User save(User user);
+	T save(T t);
 	
 }
