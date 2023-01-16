@@ -8,12 +8,12 @@ public class AuthenticationService {
 	
 	private UserRepository<User> userRepository;
 	
-	AuthenticationService(UserRepository<User> userRepository){
+	public AuthenticationService(UserRepository<User> userRepository){
 		this.userRepository = userRepository;
 	}
 	
 	public User authenticate(String username, String password) throws UserNotFoundException{
-		if(userRepository.validate(username, password)) {
+		if (userRepository.validate(username, password)) {
 			User returnedUser = userRepository.findByUsername(username);
 			return returnedUser;
 		}else {
@@ -30,4 +30,5 @@ public class AuthenticationService {
 		}
 		return (User) returnedUser;
 	}
+	
 }

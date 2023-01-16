@@ -30,8 +30,10 @@ public class UserArrayListRepository implements UserRepository {
 	public User findById(int id) {
 		User returnedUser = null;
 		try {
+			System.out.println(users.size());
 			returnedUser = users.stream().filter( user -> user.getUserId() == id).collect(Collectors.toList()).get(0);
 		}catch(Exception e) {
+			System.out.println("no User found");
 		}
 		return returnedUser;
 	}
@@ -80,6 +82,7 @@ public class UserArrayListRepository implements UserRepository {
 		try {
 			existingUserPassword = listOfUsersWithMatchingUserNames.get(0).getPassword();
 		} catch(Exception e) {
+			
 		}
 		
 		if (listOfUsersWithMatchingUserNames.size() != 0 && existingUserPassword == password) {
@@ -98,6 +101,5 @@ public class UserArrayListRepository implements UserRepository {
 		}
 		return null;
 	}
-	
 	
 }

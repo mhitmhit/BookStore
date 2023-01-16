@@ -49,8 +49,9 @@ public class Order {
 		if (orderDateTime == null) {
 			if (other.orderDateTime != null)
 				return false;
-		} else if (!orderDateTime.equals(other.orderDateTime))
-			return false;
+		}
+//		} else if (!orderDateTime.equals(other.orderDateTime))
+//			return false;
 		if (orderId != other.orderId)
 			return false;
 		if (user == null) {
@@ -63,7 +64,7 @@ public class Order {
 	
 	@Override
 	public String toString() {
-		return "Order [orderId=" + orderId + ", bookOrdered=" + bookOrdered + ", user=" + user + ", orderDateTime="
+		return "Order [orderId=" + orderId + ", bookOrdered=" + bookOrdered.toString() + ", userId=" + user.getUserId() + ", orderDateTime="
 				+ orderDateTime + "]";
 	}
 	

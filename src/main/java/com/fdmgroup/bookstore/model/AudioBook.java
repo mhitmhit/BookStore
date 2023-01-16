@@ -13,7 +13,7 @@ public class AudioBook extends Book {
 	public AudioBook(int itemId, double price, String title, String author, BookGenre bookGenre) {
 		super(itemId, price, title, author, bookGenre);
 	}
-
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -38,7 +38,10 @@ public class AudioBook extends Book {
 
 	@Override
 	public String toString() {
-		return "AudioBook [timeLengthSeconds=" + timeLengthSeconds + "]";
+		return "AudioBook [timeLengthSeconds=" + timeLengthSeconds + ", toString()=" + super.toString() + "]";
 	}
+	
+	
 
+	
 }

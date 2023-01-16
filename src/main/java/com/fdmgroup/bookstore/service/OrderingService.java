@@ -32,10 +32,10 @@ public class OrderingService {
 	public Order placeOrder(Book book, User customer) throws UserNotFoundException, ItemNotFoundException{
 		Book returnedBook = (Book) bookRepository.findById(book.getItemId());
 		User returnedUser = (User) userRepository.findById(customer.getUserId());
-		if (returnedUser.equals(null)) {
+		if (returnedUser == null) {
 			throw new UserNotFoundException("user not found during placement of order");
 		}
-		if (returnedBook.equals(null)) {
+		if (returnedBook == null) {
 			throw new ItemNotFoundException("book not found during placement of order");
 		}
 		Order order = new Order(101, book, customer, LocalDateTime.now());
@@ -45,7 +45,7 @@ public class OrderingService {
 	public List<Order> placeOrders(List<Book> books, User customer) throws UserNotFoundException{
 		List<Order> orderList = new ArrayList<Order>();
 		User returnedUser = (User) userRepository.findById(customer.getUserId());
-		if (returnedUser.equals(null)) {
+		if (returnedUser == null) {
 			throw new UserNotFoundException("user not found during placement of order");
 		}
 		for (Book b:books) {

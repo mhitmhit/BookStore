@@ -4,13 +4,13 @@ public class EBook extends Book {
 	
 	private double sizeMegaBytes;
 
-	public EBook(double sizeMegaBytes) {
-		super();
+	public EBook(int itemId, double price, String title, String author, BookGenre bookGenre, double sizeMegaBytes) {
+		super(itemId, price, title, author, bookGenre);
 		this.sizeMegaBytes = sizeMegaBytes;
 	}
 
-	public EBook() {
-		super();
+	public EBook(int itemId, double price, String title, String author, BookGenre bookGenre) {
+		super(itemId, price, title, author, bookGenre);
 	}
 
 	@Override
@@ -39,7 +39,8 @@ public class EBook extends Book {
 
 	@Override
 	public String toString() {
-		return "EBook [sizeMegaBytes=" + sizeMegaBytes + "]";
+		return "EBook [sizeMegaBytes=" + sizeMegaBytes + ", toString()=" + super.toString() + "]";
 	}
+	
 	
 }

@@ -1,5 +1,6 @@
 package com.fdmgroup.bookstore.model;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class User {
@@ -23,6 +24,7 @@ public class User {
 		this.email = email;
 		this.orders = orders;
 	}
+	
 	
 	public User() {
 		super();
@@ -87,8 +89,13 @@ public class User {
 	}
 	@Override
 	public String toString() {
+		StringBuilder ordersString = new StringBuilder();
+		for (Order o:orders) {
+			ordersString.append(o.toString());
+		}
 		return "User [userId=" + userId + ", firstName=" + firstName + ", lastName=" + lastName + ", userName="
-				+ userName + ", password=" + password + ", email=" + email + ", orders=" + orders + "]";
+				//+ userName + ", password=" + password + ", email=" + email + ", orders=" + orders.toString() + "]";
+				+ userName + ", password=" + password + ", email=" + email + ", orders=" + ordersString + "]";
 	}
 
 	public int getUserId() {
