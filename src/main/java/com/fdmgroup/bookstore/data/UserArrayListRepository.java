@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 import com.fdmgroup.bookstore.model.User;
 
-public class UserArrayListRepository implements UserRepository {
+public class UserArrayListRepository implements UserRepository<User> {
 	
 	private List<User> users;
 	public static int id=0;

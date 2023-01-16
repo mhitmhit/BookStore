@@ -1,7 +1,7 @@
 package com.fdmgroup.bookstore.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
+//import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.when;
 
@@ -15,21 +15,21 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.fdmgroup.bookstore.data.BookRepository;
-import com.fdmgroup.bookstore.data.UserRepository;
+//import com.fdmgroup.bookstore.data.UserRepository;
 import com.fdmgroup.bookstore.exceptions.ItemNotFoundException;
-import com.fdmgroup.bookstore.exceptions.UserNotFoundException;
+//import com.fdmgroup.bookstore.exceptions.UserNotFoundException;
 import com.fdmgroup.bookstore.model.AudioBook;
 import com.fdmgroup.bookstore.model.Book;
 import com.fdmgroup.bookstore.model.BookGenre;
 import com.fdmgroup.bookstore.model.EBook;
-import com.fdmgroup.bookstore.model.Order;
-import com.fdmgroup.bookstore.model.User;
+//import com.fdmgroup.bookstore.model.Order;
+//import com.fdmgroup.bookstore.model.User;
 
 @ExtendWith(MockitoExtension.class)
 class BookServiceTest {
 	
 	@Mock
-	BookRepository mockBookRepository;
+	BookRepository<Book> mockBookRepository;
 	
 	@Mock
 	BookService mockBookService;
@@ -53,8 +53,8 @@ class BookServiceTest {
 		BookGenre bookGenre = BookGenre.Fiction;
 		
 		Book book1 = new AudioBook(101, 9.99, "the innocent man", "john grisham", BookGenre.Fiction, 5005);
-		Book book2 = new EBook(102, 10.99, "david and goliath", "terrence florio", BookGenre.NONFiction, 3000);
-		Book book3 = new Book(103, 11.99, "daily habits", "alex dutton", BookGenre.NONFiction);
+		//Book book2 = new EBook(102, 10.99, "david and goliath", "terrence florio", BookGenre.NONFiction, 3000);
+		//Book book3 = new Book(103, 11.99, "daily habits", "alex dutton", BookGenre.NONFiction);
 		List<Book> list1 = new ArrayList<Book>(Arrays.asList(book1));
 		
 		when(mockBookRepository.findAll()).thenReturn(list1);
@@ -69,8 +69,8 @@ class BookServiceTest {
 		String bookTitle = "the innocent man";
 		
 		Book book1 = new AudioBook(101, 9.99, "the innocent man", "john grisham", BookGenre.Fiction, 5005);
-		Book book2 = new EBook(102, 10.99, "david and goliath", "terrence florio", BookGenre.NONFiction, 3000);
-		Book book3 = new Book(103, 11.99, "daily habits", "alex dutton", BookGenre.NONFiction);
+		//Book book2 = new EBook(102, 10.99, "david and goliath", "terrence florio", BookGenre.NONFiction, 3000);
+		//Book book3 = new Book(103, 11.99, "daily habits", "alex dutton", BookGenre.NONFiction);
 		List<Book> list1 = new ArrayList<Book>(Arrays.asList(book1));
 		
 		when(mockBookRepository.findAll()).thenReturn(list1);
@@ -85,7 +85,7 @@ class BookServiceTest {
 		String bookAuthor = "john";
 		
 		Book book1 = new AudioBook(101, 9.99, "the innocent man", "john grisham", BookGenre.Fiction, 5005);
-		Book book2 = new EBook(102, 10.99, "david and goliath", "terrence florio", BookGenre.NONFiction, 3000);
+		//Book book2 = new EBook(102, 10.99, "david and goliath", "terrence florio", BookGenre.NONFiction, 3000);
 		Book book3 = new Book(103, 11.99, "daily habits", "john grisham", BookGenre.NONFiction);
 		List<Book> list1 = new ArrayList<Book>(Arrays.asList(book1, book3));
 		
@@ -98,13 +98,14 @@ class BookServiceTest {
 	@Test
 	void test_findByIdMethod_validID() {
 		BookService bookService = new BookService(mockBookRepository);
-		int bookID = 103;
+		//int bookID = 103;
+		@SuppressWarnings("unused")
 		boolean res = false;
 		
-		Book book1 = new AudioBook(101, 9.99, "the innocent man", "john grisham", BookGenre.Fiction, 5005);
-		Book book2 = new EBook(102, 10.99, "david and goliath", "terrence florio", BookGenre.NONFiction, 3000);
+		//Book book1 = new AudioBook(101, 9.99, "the innocent man", "john grisham", BookGenre.Fiction, 5005);
+		//Book book2 = new EBook(102, 10.99, "david and goliath", "terrence florio", BookGenre.NONFiction, 3000);
 		Book book3 = new Book(103, 11.99, "daily habits", "john grisham", BookGenre.NONFiction);
-		List<Book> list1 = new ArrayList<Book>(Arrays.asList(book3));
+		//List<Book> list1 = new ArrayList<Book>(Arrays.asList(book3));
 		
 		when(mockBookRepository.findById(103)).thenReturn(book3);
 		
@@ -118,13 +119,13 @@ class BookServiceTest {
 	@Test
 	void test_findByIdMethod_InValidID() {
 		BookService bookService = new BookService(mockBookRepository);
-		int bookID = 10;
+		//int bookID = 10;
 		boolean res = false;
 		
-		Book book1 = new AudioBook(101, 9.99, "the innocent man", "john grisham", BookGenre.Fiction, 5005);
-		Book book2 = new EBook(102, 10.99, "david and goliath", "terrence florio", BookGenre.NONFiction, 3000);
-		Book book3 = new Book(103, 11.99, "daily habits", "john grisham", BookGenre.NONFiction);
-		List<Book> list1 = new ArrayList<Book>(Arrays.asList(book3));
+		//Book book1 = new AudioBook(101, 9.99, "the innocent man", "john grisham", BookGenre.Fiction, 5005);
+		//Book book2 = new EBook(102, 10.99, "david and goliath", "terrence florio", BookGenre.NONFiction, 3000);
+		//Book book3 = new Book(103, 11.99, "daily habits", "john grisham", BookGenre.NONFiction);
+		//List<Book> list1 = new ArrayList<Book>(Arrays.asList(book3));
 		
 		when(mockBookRepository.findById(10)).thenReturn(null);
 		

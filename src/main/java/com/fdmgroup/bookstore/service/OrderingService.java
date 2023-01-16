@@ -15,17 +15,17 @@ import com.fdmgroup.bookstore.model.User;
 
 public class OrderingService {
 	
-	private OrderRepository orderRepository;
-	private BookRepository bookRepository;
-	private UserRepository userRepository;
+	private OrderRepository<Order> orderRepository;
+	private BookRepository<Book> bookRepository;
+	private UserRepository<User> userRepository;
 	
-	public OrderingService(OrderRepository orderRepo, BookRepository bookRepo, UserRepository userRepo){
-		this.orderRepository = orderRepository;
+	public OrderingService(OrderRepository<Order> orderRepo, BookRepository<Book> bookRepo, UserRepository<User> userRepo){
+		this.orderRepository = orderRepo;
 		this.bookRepository = bookRepo;
 		this.userRepository = userRepo;
 	}
 	
-	public OrderingService(OrderRepository orderRepository){
+	public OrderingService(OrderRepository<Order> orderRepository){
 		this.orderRepository = orderRepository;
 	}
 	
@@ -61,6 +61,7 @@ public class OrderingService {
 		return user.getOrders();
 	}
 	
+	@SuppressWarnings("unchecked")
 	public List<Order> getOrdersForBook(Book book){
 		return (List<Order>) orderRepository.findById(book.getItemId());
 	}

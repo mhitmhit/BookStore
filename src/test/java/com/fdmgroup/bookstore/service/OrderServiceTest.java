@@ -1,7 +1,7 @@
 package com.fdmgroup.bookstore.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
+//import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.when;
 
@@ -23,7 +23,7 @@ import com.fdmgroup.bookstore.exceptions.UserNotFoundException;
 import com.fdmgroup.bookstore.model.AudioBook;
 import com.fdmgroup.bookstore.model.Book;
 import com.fdmgroup.bookstore.model.BookGenre;
-import com.fdmgroup.bookstore.model.EBook;
+//import com.fdmgroup.bookstore.model.EBook;
 import com.fdmgroup.bookstore.model.Order;
 import com.fdmgroup.bookstore.model.User;
 
@@ -31,25 +31,25 @@ import com.fdmgroup.bookstore.model.User;
 class OrderServiceTest {
 	
 	@Mock
-	BookRepository mockBookRepository;
+	BookRepository<Book> mockBookRepository;
 	
 	@Mock
-	UserRepository mockUserRepository;
+	UserRepository<User> mockUserRepository;
 	
 	@Mock
-	OrderRepository mockOrderRepository;
+	OrderRepository<Order> mockOrderRepository;
 	
 	@Test
 	void test_placeOrderMethod(){
-		OrderingService orderingService1 = new OrderingService(mockOrderRepository);
+		//OrderingService orderingService1 = new OrderingService(mockOrderRepository);
 		OrderingService orderingService = new OrderingService(mockOrderRepository, mockBookRepository, mockUserRepository);
 		
 		User user1 = new User(99, "test1", "testing1", "test1Username", "test1Password", "test1@gmail.com", null );
 		
 		Book book1 = new AudioBook(101, 9.99, "the innocent man", "john grisham", BookGenre.Fiction, 5005);
-		Book book2 = new EBook(102, 10.99, "david and goliath", "terrence florio", BookGenre.NONFiction, 3000);
-		Book book3 = new Book(103, 11.99, "daily habits", "alex dutton", BookGenre.NONFiction);
-		List<Book> list1 = new ArrayList<Book>(Arrays.asList(book1, book2, book3));
+		//Book book2 = new EBook(102, 10.99, "david and goliath", "terrence florio", BookGenre.NONFiction, 3000);
+		//Book book3 = new Book(103, 11.99, "daily habits", "alex dutton", BookGenre.NONFiction);
+		//List<Book> list1 = new ArrayList<Book>(Arrays.asList(book1, book2, book3));
 		
 		Order exptectedOrder = new Order(101, book1, user1, LocalDateTime.now());
 		
@@ -74,11 +74,11 @@ class OrderServiceTest {
 		User user1 = new User(99, "test1", "testing1", "test1Username", "test1Password", "test1@gmail.com", null );
 		
 		Book book1 = new AudioBook(101, 9.99, "the innocent man", "john grisham", BookGenre.Fiction, 5005);
-		Book book2 = new EBook(102, 10.99, "david and goliath", "terrence florio", BookGenre.NONFiction, 3000);
-		Book book3 = new Book(103, 11.99, "daily habits", "alex dutton", BookGenre.NONFiction);
-		List<Book> list1 = new ArrayList<Book>(Arrays.asList(book1, book2, book3));
+		//Book book2 = new EBook(102, 10.99, "david and goliath", "terrence florio", BookGenre.NONFiction, 3000);
+		//Book book3 = new Book(103, 11.99, "daily habits", "alex dutton", BookGenre.NONFiction);
+		//List<Book> list1 = new ArrayList<Book>(Arrays.asList(book1, book2, book3));
 		
-		Order exptectedOrder = new Order(101, book1, user1, LocalDateTime.now());
+		//Order exptectedOrder = new Order(101, book1, user1, LocalDateTime.now());
 		
 		when(mockBookRepository.findById(101)).thenReturn(book1);
 		when(mockUserRepository.findById(99)).thenReturn(null);
@@ -103,11 +103,11 @@ class OrderServiceTest {
 		User user1 = new User(99, "test1", "testing1", "test1Username", "test1Password", "test1@gmail.com", null );
 		
 		Book book1 = new AudioBook(101, 9.99, "the innocent man", "john grisham", BookGenre.Fiction, 5005);
-		Book book2 = new EBook(102, 10.99, "david and goliath", "terrence florio", BookGenre.NONFiction, 3000);
-		Book book3 = new Book(103, 11.99, "daily habits", "alex dutton", BookGenre.NONFiction);
-		List<Book> list1 = new ArrayList<Book>(Arrays.asList(book1, book2, book3));
+		//Book book2 = new EBook(102, 10.99, "david and goliath", "terrence florio", BookGenre.NONFiction, 3000);
+		//Book book3 = new Book(103, 11.99, "daily habits", "alex dutton", BookGenre.NONFiction);
+		//List<Book> list1 = new ArrayList<Book>(Arrays.asList(book1, book2, book3));
 		
-		Order exptectedOrder = new Order(101, book1, user1, LocalDateTime.now());
+		//Order exptectedOrder = new Order(101, book1, user1, LocalDateTime.now());
 		
 		when(mockBookRepository.findById(101)).thenReturn(null);
 		when(mockUserRepository.findById(99)).thenReturn(user1);
@@ -128,12 +128,12 @@ class OrderServiceTest {
 	@Test
 	void test_placeOrdersMethod(){
 		OrderingService orderingService = new OrderingService(mockOrderRepository, mockBookRepository, mockUserRepository);
-		boolean result = false;
+		//boolean result = false;
 		User user1 = new User(99, "test1", "testing1", "test1Username", "test1Password", "test1@gmail.com", null );
 		
 		Book book1 = new AudioBook(101, 9.99, "the innocent man", "john grisham", BookGenre.Fiction, 5005);
-		Book book2 = new EBook(102, 10.99, "david and goliath", "terrence florio", BookGenre.NONFiction, 3000);
-		Book book3 = new Book(103, 11.99, "daily habits", "alex dutton", BookGenre.NONFiction);
+		//Book book2 = new EBook(102, 10.99, "david and goliath", "terrence florio", BookGenre.NONFiction, 3000);
+		//Book book3 = new Book(103, 11.99, "daily habits", "alex dutton", BookGenre.NONFiction);
 		List<Book> list1 = new ArrayList<Book>(Arrays.asList(book1));
 		 
 		Order exptectedOrder = new Order(101, book1, user1, LocalDateTime.now());
@@ -151,19 +151,6 @@ class OrderServiceTest {
 			
 		
 	}	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 
 }

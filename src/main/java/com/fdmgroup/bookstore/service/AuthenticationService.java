@@ -17,7 +17,7 @@ public class AuthenticationService {
 			User returnedUser = userRepository.findByUsername(username);
 			return returnedUser;
 		}else {
-			throw new UserNotFoundException("User not Found");
+			throw new UserNotFoundException("User not Found in AuthenticationService.Authenticate");
 		}
 	}
 	
@@ -26,7 +26,7 @@ public class AuthenticationService {
 		User returnedUser = null;
 		returnedUser = (User) userRepository.findById(id);
 		if (returnedUser == null) {
-			throw new UserNotFoundException("User not Found");
+			throw new UserNotFoundException("User not Found in AuthenticationService.FindById");
 		}
 		return (User) returnedUser;
 	}

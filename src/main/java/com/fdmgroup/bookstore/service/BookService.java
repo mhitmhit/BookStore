@@ -10,9 +10,9 @@ import com.fdmgroup.bookstore.model.BookGenre;
 
 public class BookService {
 	
-	private BookRepository bookRepository;
+	private BookRepository<Book> bookRepository;
 	
-	public BookService(BookRepository bookRepository) {
+	public BookService(BookRepository<Book> bookRepository) {
 		this.bookRepository = bookRepository;
 	}
 	

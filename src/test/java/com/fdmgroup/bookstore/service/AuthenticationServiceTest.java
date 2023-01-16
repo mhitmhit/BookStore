@@ -5,10 +5,6 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.when;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -25,7 +21,7 @@ class AuthenticationServiceTest {
 	UserRepository<User> mockUserRepository;
 	
 	@Test
-	void test_AuthenticateMethod_UserIsInRepo(){
+	void test_authenticateMethod_UserIsInRepo(){
 		
 		AuthenticationService authSer = new AuthenticationService(mockUserRepository);
 		User testUser = new User();
@@ -46,6 +42,7 @@ class AuthenticationServiceTest {
 	@Test
 	void test_authenticateMethod_UserIsNotInRepo() {
 		AuthenticationService authSer = new AuthenticationService(mockUserRepository);
+		@SuppressWarnings("unused")
 		User retUser = null;
 		Boolean result = true;
 		when(mockUserRepository.validate("test","test123")).thenReturn(false);
@@ -78,7 +75,8 @@ class AuthenticationServiceTest {
 	@Test
 	void test_findByIDMethod_UserIsNotInRepo() {
 		AuthenticationService authSer = new AuthenticationService(mockUserRepository);
-		User testUser = new User();
+		//User testUser = new User();
+		@SuppressWarnings("unused")
 		User retUser = null;
 		boolean result =false;
 		

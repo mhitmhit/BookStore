@@ -1,6 +1,5 @@
 package com.fdmgroup.bookstore.model;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class User {

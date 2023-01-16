@@ -1,4 +1,4 @@
-package testing;
+package manual_Testing;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -47,15 +47,15 @@ public class driver {
 		UserArrayListRepository userListRepo = new UserArrayListRepository(userList);
 		System.out.println("-------------------------------------------------------");
 		
-//		System.out.println(
-//				userListRepo.findById(98).toString()
-//				);
+		System.out.println(
+			userListRepo.findById(98).toString()
+				);
 		
-		//System.out.println(userListRepo.findAll().toString());
+		System.out.println(userListRepo.findAll().toString());
 		
-		//System.out.println(userListRepo.validate("test1Username", "test1Passwor"));
+		System.out.println(userListRepo.validate("test1Username", "test1Passwor"));
 		
-		//System.out.println(userListRepo.findByUsername("test2Username"));
+		System.out.println(userListRepo.findByUsername("test2Username"));
 		
 		System.out.println("---------------------------------------------------------------------------AuthService");
 		
@@ -66,6 +66,8 @@ public class driver {
 		//System.out.println(retUser2);
 		
 		System.out.println("---------------------------------------------------------------------------BookService");
+		
+		
 
 		
 		
